@@ -11,11 +11,11 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: <%= ENV['DB_DATABASE'] %>
+  database: heroku_82f46841f8c7c7d
   pool: 5
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
+  username: b5cb5e13ec1364
+  password: '50102000'
+  host: us-cdbr-east-04.cleardb.com
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
