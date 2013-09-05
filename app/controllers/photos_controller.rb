@@ -5,9 +5,10 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new photo_params
-    @photo.save
 
-    redirect_to root_path
+    return redirect_to root_path if @photo.save
+
+    render :new
   end
 
   private
