@@ -1,7 +1,7 @@
 module ApplicationHelper
   def display_form_error_message(model)
     content_tag :div, class: 'notice' do
-      'Upps we have an error'
+      t :form_error, count: model.errors.count
     end if model.errors.any?
   end
 
