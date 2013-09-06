@@ -1,6 +1,7 @@
 OnePx::Application.routes.draw do
 
   get '/photos/new' => 'photos#new', as: :new_photo
+  get '/photos/:id' => 'photos#show', as: :photo
   post '/photos' => 'photos#create', as: :photos
 
   root to: 'home#index'

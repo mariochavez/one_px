@@ -1,0 +1,11 @@
+es:
+
+  form_error:
+    one: 'Ohh tenemos un error'
+    other: 'Ohh tenemos %{count} errores'
+
+  photos:
+
+    new:
+      title: 'Agregar una foto'
+      help: 'Utilice esta forma para agregar una foto.'

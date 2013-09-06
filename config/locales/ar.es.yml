@@ -1,0 +1,20 @@
+es:
+
+  activerecord:
+    models:
+      photo: 'Fotografia'
+    attributes:
+      photo:
+        title: 'Titulo'
+        description: 'Descripcion'
+        tags: 'Etiquetas'
+
+    errors:
+      models:
+        photo:
+          attributes:
+            description:
+              blank: 'comentanos acerca de'
+
+      messages:
+        blank: 'es requerido'
