@@ -2,7 +2,7 @@ es:
 
   activerecord:
     models:
-      photo: 'Fotografia'
+      photo: 'Fotografía'
     attributes:
       photo:
         title: 'Titulo'
