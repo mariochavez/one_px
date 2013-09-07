@@ -8,10 +8,9 @@
 </head>
 <body>
 
-  <% flash.keys.each do |key| %>
-    <div class="<%= key %>"><%= flash[key] %></div>
-  <% end %>
-<%= yield %>
+  <%= render 'shared/flash' %>
+
+  <%= yield %>
 
 </body>
 </html>

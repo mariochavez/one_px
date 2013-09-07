@@ -1,5 +1,8 @@
 es:
 
+  record_not_found: 'Registro no encontrado'
+  edit: 'Editar'
+
   form_error:
     one: 'Ohh tenemos un error'
     other: 'Ohh tenemos %{count} errores'
@@ -9,3 +12,6 @@ es:
     new:
       title: 'Agregar una foto'
       help: 'Utilice esta forma para agregar una foto.'
+
+    index:
+      title: 'Mis %{model_name}'
