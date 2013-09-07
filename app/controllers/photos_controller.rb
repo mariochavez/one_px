@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
   before_action :find_resource, only: [ :show, :edit, :update, :destroy ]
-  skip_before_action :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
+  skip_before_action :verify_authenticity_token,
+    :if => Proc.new { |c| c.request.format == 'application/json' }
 
   respond_to :html
   respond_to :json, :xml, except: [ :new, :edit ]
@@ -24,9 +25,12 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new photo_params
 
-    return redirect_to photos_path if @photo.save
+    location = if @photo.save && params[:format].nil?
+      flash[:notice] = 'Una nueva foto ha sido creada'
+      photos_path
+    end
 
-    render :new
+    respond_with @photo, location: location
   end
 
   def edit
