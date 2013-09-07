@@ -3,7 +3,11 @@ OnePx::Application.routes.draw do
   resources :photos
 
   get '/signup' => 'users#new', as: :signup
-  post '/signup' => 'users#create', as: :users
+  post '/signup' => 'users#create', as: :signup_user
+
+  get '/signin' => 'sessions#new', as: :signin
+  post '/signin' => 'sessions#create', as: :signin_user
+  delete '/signout' => 'sessions#destroy', as: :signout
 
   root to: 'home#index'
 

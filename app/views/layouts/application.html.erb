@@ -9,9 +9,9 @@
 <body>
   <header>
     <% if current_user? %>
-      <span>Hola <%= current_user.email %> | <%= link_to 'Cerrar sesion', '#' %></span>
+      <span>Hola <%= current_user.email %> | <%= link_to 'Cerrar sesion', signout_path, method: :delete %></span>
     <% else %>
-      <%= link_to 'Registro', signup_path %> | <%= link_to 'Iniciar sesion', '#' %>
+      <%= link_to 'Registro', signup_path %> | <%= link_to 'Iniciar sesion', signin_path %>
     <% end %>
   </header>
 

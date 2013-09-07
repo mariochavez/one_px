@@ -1,0 +1,15 @@
+<h3>Sesion</h3>
+
+<%= form_for @user, url: signin_user_path do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
