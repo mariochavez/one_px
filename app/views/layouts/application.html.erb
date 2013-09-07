@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <% if current_user? %>
+      <span>Hola <%= current_user.email %> | <%= link_to 'Cerrar sesion', '#' %></span>
+    <% else %>
+      <%= link_to 'Registro', signup_path %> | <%= link_to 'Iniciar sesion', '#' %>
+    <% end %>
+  </header>
 
   <%= render 'shared/flash' %>
 

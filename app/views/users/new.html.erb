@@ -1,0 +1,24 @@
+<h3>Registro</h3>
+
+<%= display_form_error_message @user %>
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= display_field_error_message @user, :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= display_field_error_message @user, :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <%= display_field_error_message @user, :password_confirmation %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -2,6 +2,9 @@ OnePx::Application.routes.draw do
 
   resources :photos
 
+  get '/signup' => 'users#new', as: :signup
+  post '/signup' => 'users#create', as: :users
+
   root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
