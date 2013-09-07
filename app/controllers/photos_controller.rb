@@ -24,9 +24,12 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new photo_params
 
-    return redirect_to photos_path if @photo.save
+    location = if @photo.save && params[:format].nil?
+      flash[:notice] = 'Una nueva foto ha sido creada'
+      photos_path
+   end
 
-    render :new
+    respond_with @photo, location: location
   end
 
   def edit
@@ -34,17 +37,23 @@ class PhotosController < ApplicationController
   end
 
   def update
-    if @photo.update_attributes photo_params
-      return redirect_to photos_path, notice: 'Tu foto fue actualizada'
+    location = if @photo.update_attributes(photo_params) && params[:format].nil?
+      flash[:notice] = 'Tu foto fue actualizada'
+      photos_path
     end
 
-    render :edit
+    respond_with @photo, location: location
   end
 
   def destroy
     @photo.destroy
 
-    redirect_to photos_path, notice: 'Su foto fue eliminada'
+    location = if params[:format].nil?
+      flash[:notice] = 'Su foto fue eliminada'
+      photos_path
+    end
+
+    respond_with @photo, location: location
   end
 
   private
