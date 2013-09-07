@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :authenticate!
   before_action :find_resource, only: [ :show, :edit, :update, :destroy ]
   skip_before_action :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -6,7 +7,7 @@ class PhotosController < ApplicationController
   respond_to :json, :xml, except: [ :new, :edit ]
 
   def index
-    @photos = Photo.all.order 'id desc'
+    @photos = Photo.get_by_user_eager(current_user.id).desc_id_ordered
 
     respond_with @photos
   end
@@ -22,7 +23,9 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new photo_params
+    @photo = Photo.new(photo_params).tap do |photo|
+      photo.user = current_user
+    end
 
     location = if @photo.save && params[:format].nil?
       flash[:notice] = 'Una nueva foto ha sido creada'
@@ -58,7 +61,7 @@ class PhotosController < ApplicationController
 
   private
   def find_resource
-    @photo = Photo.find_by_id params[:id]
+    @photo = Photo.get_by_id_and_user(params[:id], current_user.id).first
 
     return redirect_to root_path, alert: t(:record_not_found) unless @photo
   end
