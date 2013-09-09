@@ -1,6 +1,6 @@
 module Api
   class ApplicationController < ActionController::Base
-    before_action :set_locale#, :get_auth_header
+    before_action :set_locale
     respond_to :json, :xml
 
     protected
