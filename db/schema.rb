@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907180401) do
+ActiveRecord::Schema.define(version: 20130907212836) do
+
+  create_table "api_authorizations", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.string   "token",      null: false
+    t.datetime "expiration", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "api_authorizations", ["user_id", "token"], name: "index_api_authorizations_on_user_id_and_token", using: :btree
+
+  create_table "api_clients", force: true do |t|
+    t.string   "identifier",      null: false
+    t.string   "password_digest", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "photos", force: true do |t|
     t.string   "title"

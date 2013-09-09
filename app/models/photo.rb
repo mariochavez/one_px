@@ -12,10 +12,6 @@ class Photo < ActiveRecord::Base
   scope :get_by_id_and_user, ->(id, user_id) { where(id: id).get_by_user(user_id) }
 
   def as_json(options)
-    super(only: [:title, :description, :id], methods: [:calculate])
-  end
-
-  def calculate
-    'test'
+    super(only: [:title, :description, :id])
   end
 end

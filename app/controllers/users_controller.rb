@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :redirect_already_logged_user
-  respond_to :html
 
   def new
     @user = User.new

@@ -1,6 +1,6 @@
 OnePx::Application.routes.draw do
 
-  resources :photos
+  resources :photos, format: false
 
   get '/signup' => 'users#new', as: :signup
   post '/signup' => 'users#create', as: :signup_user
@@ -8,6 +8,12 @@ OnePx::Application.routes.draw do
   get '/signin' => 'sessions#new', as: :signin
   post '/signin' => 'sessions#create', as: :signin_user
   delete '/signout' => 'sessions#destroy', as: :signout
+
+  namespace :api, defaults: { format: 'json' } do
+    resources :photos, only: [ :index ]
+
+    post '/authorize' => 'authentication#create'
+  end
 
   root to: 'home#index'
 

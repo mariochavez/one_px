@@ -1,10 +1,6 @@
 class PhotosController < ApplicationController
   before_action :authenticate!
   before_action :find_resource, only: [ :show, :edit, :update, :destroy ]
-  skip_before_action :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
-
-  respond_to :html
-  respond_to :json, :xml, except: [ :new, :edit ]
 
   def index
     @photos = Photo.get_by_user_eager(current_user.id).desc_id_ordered
