@@ -4,8 +4,9 @@ module Api
 
     def index
       @photos = Photo.get_by_user_eager(current_user.id).desc_id_ordered
+      @authorization = Authorization.first
 
-      respond_with @photos
+      respond_with [@photos, @authorization]
     end
 
     private

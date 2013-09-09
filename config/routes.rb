@@ -10,7 +10,7 @@ OnePx::Application.routes.draw do
   delete '/signout' => 'sessions#destroy', as: :signout
 
   namespace :api, defaults: { format: 'json' } do
-    resources :photos, only: [ :index ]
+    resources :photos, only: [ :index, :show ]
 
     post '/authorize' => 'authentication#create'
   end
