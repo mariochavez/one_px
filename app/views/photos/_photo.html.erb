@@ -1,3 +1,4 @@
 <li>
-<%= link_to photo.title, photo %> (<%= photo.user.email %>) [ <%= link_to t('edit'), edit_photo_path(photo) %> | <%= link_to t('delete'), photo_path(photo), method: :delete, confirm: 'Estas seguro?' %> ]
+  <%= link_to photo.title, photo %> (<%= photo.user.email %>) [ <%= link_to t('edit'), edit_photo_path(photo) %> | <%= link_to t('delete'), photo_path(photo), method: :delete, confirm: 'Estas seguro?' %> ]
+  <div><%= image_tag photo.image.url(:thumb) if photo.image %></div>
 </li>

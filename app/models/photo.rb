@@ -3,6 +3,8 @@ class Photo < ActiveRecord::Base
 
   belongs_to :user
 
+  mount_uploader :image, ImageUploader
+
   scope :get_by_user, ->(user_id) { where(user_id: user_id) }
 
   scope :desc_id_ordered, -> { order('id desc') }

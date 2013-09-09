@@ -36,6 +36,10 @@ gem 'puma'
 gem 'foreman'
 gem 'pretty_formatter'
 gem 'pry-rails'
+gem 'oj'
+gem 'rabl'
+gem 'carrierwave'
+gem 'rmagick'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

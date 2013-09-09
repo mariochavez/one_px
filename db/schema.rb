@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907212836) do
+ActiveRecord::Schema.define(version: 20130909223837) do
 
   create_table "api_authorizations", force: true do |t|
     t.integer  "user_id",    null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20130907212836) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "image"
   end
 
   add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree

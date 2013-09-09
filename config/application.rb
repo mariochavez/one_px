@@ -21,5 +21,6 @@ module OnePx
     config.i18n.default_locale = :es
 
     config.log_formatter = PrettyFormatter.formatter
+
   end
 end

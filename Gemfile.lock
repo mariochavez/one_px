@@ -29,6 +29,10 @@ GEM
     atomic (1.1.13)
     bcrypt-ruby (3.0.1)
     builder (3.1.4)
+    carrierwave (0.9.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -61,6 +65,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.9)
     mysql2 (0.3.13)
+    oj (2.1.4)
     polyglot (0.3.3)
     pretty_formatter (0.0.2)
       activesupport (>= 3.2)
@@ -72,6 +77,8 @@ GEM
       pry (>= 0.9.10)
     puma (2.5.1)
       rack (>= 1.1, < 2.0)
+    rabl (0.8.6)
+      activesupport (>= 2.3.14)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -92,6 +99,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
+    rmagick (2.13.2)
     sass (3.2.10)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -132,15 +140,19 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  carrierwave
   coffee-rails (~> 4.0.0)
   foreman
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
+  oj
   pretty_formatter
   pry-rails
   puma
+  rabl
   rails (= 4.0.0)
+  rmagick
   sass-rails (~> 4.0.0)
   sdoc
   therubyracer
