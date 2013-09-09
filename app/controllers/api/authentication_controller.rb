@@ -5,10 +5,7 @@ module Api
 
       status = 200
 
-      if @authorization && Time.now > @authorization.expiration
-        @authorization = { message: 'Token expired' }
-        status = 401
-      else
+      if not @authorization or (@authorization && Time.now > @authorization.expiration)
         user = ::User.find_by(email: params[:email]).try(:authenticate, params[:password])
 
         if user
