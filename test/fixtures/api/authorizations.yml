@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  identifier_id: 1
+  user_id: 1
   token: MyString
   expiration: 2013-09-07 21:28:36
 
 two:
-  identifier_id: 1
+  user_id: 1
   token: MyString
   expiration: 2013-09-07 21:28:36

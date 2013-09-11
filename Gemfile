@@ -41,6 +41,11 @@ gem 'rabl'
 gem 'carrierwave'
 gem 'rmagick'
 
+group :test do
+  gem 'minitest-rails'
+  gem 'minitest-colorize'
+end
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
