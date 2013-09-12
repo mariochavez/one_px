@@ -44,6 +44,7 @@ gem 'rmagick'
 group :test do
   gem 'minitest-rails'
   gem 'minitest-colorize'
+  gem 'minitest-rails-capybara'
 end
 
 # Use ActiveModel has_secure_password
